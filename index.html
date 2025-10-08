@@ -3,164 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World - GitHub Pages Test</title>
+    <title>Project Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-color: #ffffff;
             color: #333;
-            line-height: 1.6;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
-            padding: 20px;
+            align-items: center;
+            padding: 2rem;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(240, 240, 240, 0.5) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(240, 240, 240, 0.5) 0%, transparent 20%);
         }
         
         .container {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            padding: 40px;
-            max-width: 600px;
+            max-width: 900px;
             width: 100%;
             text-align: center;
         }
         
-        h1 {
-            color: #4a5568;
-            margin-bottom: 20px;
-            font-size: 2.5rem;
+        .paper-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
+            line-height: 1.2;
+            color: #222;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            animation: fadeIn 1s ease-out;
         }
         
-        .hello-world {
-            font-size: 4rem;
-            font-weight: bold;
-            color: #667eea;
-            margin: 30px 0;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        
-        .status {
-            background: #f7fafc;
-            border-left: 4px solid #48bb78;
-            padding: 15px;
-            margin: 25px 0;
-            text-align: left;
-            border-radius: 0 8px 8px 0;
-        }
-        
-        .features {
+        .buttons-container {
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
+            gap: 2rem;
             flex-wrap: wrap;
-            margin: 30px 0;
+            margin-top: 2rem;
         }
         
-        .feature {
-            background: #edf2f7;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 10px;
-            flex: 1;
-            min-width: 150px;
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            min-width: 200px;
         }
         
-        .feature i {
-            font-size: 1.5rem;
-            color: #667eea;
-            margin-bottom: 10px;
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s;
         }
         
-        .instructions {
-            background: #fff5f5;
-            border-radius: 8px;
-            padding: 20px;
-            margin-top: 25px;
-            text-align: left;
+        .btn:hover::before {
+            left: 100%;
         }
         
-        .instructions h3 {
-            color: #c53030;
-            margin-bottom: 10px;
-        }
-        
-        code {
-            background: #2d3748;
-            color: #e2e8f0;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-family: 'Courier New', monospace;
-        }
-        
-        footer {
-            margin-top: 30px;
+        .arxiv-btn {
+            background: linear-gradient(135deg, #B31B1B, #8B0000);
             color: white;
-            text-align: center;
-            font-size: 0.9rem;
         }
         
-        @media (max-width: 600px) {
-            .container {
-                padding: 20px;
+        .github-btn {
+            background: linear-gradient(135deg, #333, #000);
+            color: white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn:active {
+            transform: translateY(-2px);
+        }
+        
+        .authors {
+            font-size: 1.4rem;
+            margin: 1.5rem 0 3rem;
+            color: #555;
+            font-weight: 500;
+            animation: fadeIn 1.2s ease-out;
+        }
+        
+        .abstract {
+            max-width: 700px;
+            margin: 2rem auto;
+            padding: 1.5rem;
+            background-color: #f9f9f9;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            text-align: left;
+            animation: fadeIn 1.5s ease-out;
+        }
+        
+        .abstract-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .abstract-text {
+            line-height: 1.6;
+            color: #444;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @media (max-width: 768px) {
+            .paper-title {
+                font-size: 2.5rem;
             }
             
-            .hello-world {
-                font-size: 3rem;
+            .authors {
+                font-size: 1.2rem;
             }
             
-            h1 {
-                font-size: 1.8rem;
+            .btn {
+                padding: 1rem 2rem;
+                font-size: 1.1rem;
+                min-width: 180px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .paper-title {
+                font-size: 2rem;
+            }
+            
+            .buttons-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 280px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>GitHub Pages Test Site</h1>
+        <h1 class="paper-title">Motion Synthesis with Diffusion Models: A Comprehensive Approach</h1>
         
-        <div class="hello-world">Hello, World!</div>
+        <p class="authors">Jane Smith, John Doe, Alex Johnson, and Sarah Williams</p>
         
-        <div class="status">
-            <strong>Status:</strong> If you can see this page, your GitHub Pages site is working correctly!
+        <div class="buttons-container">
+            <a href="https://arxiv.org/abs/2301.12345" class="btn arxiv-btn" target="_blank">
+                <i class="fas fa-file-alt"></i> arXiv Paper
+            </a>
+            <a href="https://github.com/username/project-repo" class="btn github-btn" target="_blank">
+                <i class="fab fa-github"></i> GitHub Repository
+            </a>
         </div>
         
-        <div class="features">
-            <div class="feature">
-                <div>🚀</div>
-                <h3>Fast</h3>
-                <p>Hosted on GitHub's global CDN</p>
-            </div>
-            <div class="feature">
-                <div>🔒</div>
-                <h3>Secure</h3>
-                <p>Automatically supports HTTPS</p>
-            </div>
-            <div class="feature">
-                <div>🆓</div>
-                <h3>Free</h3>
-                <p>No hosting costs</p>
-            </div>
-        </div>
-        
-        <div class="instructions">
-            <h3>Next Steps:</h3>
-            <p>1. Replace this content with your actual website</p>
-            <p>2. Add your own HTML, CSS, and JavaScript files</p>
-            <p>3. Push changes to your GitHub repository</p>
-            <p>4. Your site will update automatically</p>
+        <div class="abstract">
+            <h3 class="abstract-title">Abstract</h3>
+            <p class="abstract-text">
+                We present a novel approach to motion synthesis using diffusion models that achieves state-of-the-art performance across multiple benchmarks. Our method leverages temporal consistency constraints and hierarchical representations to generate realistic and diverse human motions. The proposed framework demonstrates significant improvements over existing methods in terms of both quantitative metrics and qualitative evaluations.
+            </p>
         </div>
     </div>
-    
-    <footer>
-        <p>Served via GitHub Pages | Repository: <code>PolysemanticIntervention</code></p>
-    </footer>
 </body>
 </html>
